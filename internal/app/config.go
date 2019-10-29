@@ -2,14 +2,15 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-package edgex
+package app
 
 import (
 	"fmt"
-	"github.com/BurntSushi/toml"
 	"io/ioutil"
 	"os"
 	"strconv"
+
+	"github.com/BurntSushi/toml"
 )
 
 // ClientInfo provides the host and port of another service in the eco-system.
@@ -41,7 +42,7 @@ func (client ClientInfo) Endpoint() string {
 
 // Load config (based on EdgeX Go SDK code)
 func LoadConfig(confDir string) (config *Config, err error) {
-	fmt.Fprintf(os.Stdout, "LoadConfig confDir: %s\n", confDir)
+	// fmt.Fprintf(os.Stdout, "LoadConfig confDir: %s\n", confDir)
 	confName := "configuration.toml"
 
 	if len(confDir) == 0 {
@@ -49,7 +50,7 @@ func LoadConfig(confDir string) (config *Config, err error) {
 	}
 
 	path := confDir + "/" + confName
-
+	fmt.Fprintf(os.Stdout, "LoadConfig confDir: %s\n", path)
 	// As the toml package can panic if TOML is invalid,
 	// or elements are found that don't match members of
 	// the given struct, use a defered func to recover

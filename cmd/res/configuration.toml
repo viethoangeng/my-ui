@@ -1,5 +1,5 @@
 [Server]
-  Port = 3001
+  Port = 5000
 
 [Clients]
   [Clients.Data]
